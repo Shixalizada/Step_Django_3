@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Statistika{% endblock %}
+
+{% block content %}
+  <h1>Statistika</h1>
+
+  <ul class="list">
+    <li>Post sayı: <b>{{ post_count }}</b></li>
+    <li>Kateqoriya sayı: <b>{{ category_count }}</b></li>
+    <li>
+      Ən çox oxunan:
+      {% if top_post %}
+        <a href="{% url 'blog:post_detail' top_post.id %}">{{ top_post.title }}</a>
+        — <b>{{ top_post.views }} baxış</b>
+      {% else %}
+        <b>Hələ post yoxdur.</b>
+      {% endif %}
+    </li>
+  </ul>
+{% endblock %}
